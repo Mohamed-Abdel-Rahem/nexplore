@@ -1,4 +1,4 @@
-package com.example.nexplore
+package com.nexplore.mo
 
 import io.flutter.embedding.android.FlutterActivity
 
