@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "678902716584",
+    "project_id": "nexplore-1bb9b",
+    "storage_bucket": "nexplore-1bb9b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678902716584:android:9d9413c466ab2f75bd4a9d",
+        "android_client_info": {
+          "package_name": "com.nexplore.mo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzsbb7EjbQP10qtk6hhz2rEUSvko2325A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
