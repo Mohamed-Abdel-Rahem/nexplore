@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:nexplore/screen/homePage.dart';
@@ -6,7 +7,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
     await Firebase.initializeApp();
-    runApp(const NexPlore());
+    runApp(DevicePreview(
+      enabled: true,
+      tools: const [...DevicePreview.defaultTools],
+      builder: (context) => const NexPlore(),
+    ));
   } catch (e) {
     debugPrint('Firebase initialization error: $e');
   }
