@@ -1,0 +1,23 @@
+ // TextButton(
+            //   onPressed: () {},
+            //   child: const Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //       Text(
+            //         'Do not have an account ?',
+            //         style: TextStyle(
+            //             color: Colors.black,
+            //             fontSize: 20,
+            //             fontWeight: FontWeight.bold),
+            //       ),
+            //       Text(
+            //         'SignUp',
+            //         style: TextStyle(
+            //           fontSize: 19,
+            //           color: Colors.blue,
+            //           fontWeight: FontWeight.bold,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
