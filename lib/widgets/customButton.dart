@@ -16,28 +16,36 @@ class CustomButton extends StatelessWidget {
   final String txt;
   final Color color;
   final Color? txtcolor;
-  final double vs;
-  final double hs;
+  final double vs; // Base vertical padding
+  final double hs; // Base horizontal padding
   final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
+    // Get screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return ElevatedButton(
       onPressed: onPressed,
       child: Text(
         txt,
         style: TextStyle(
-          fontSize: 24,
+          fontSize: screenWidth * 0.05, // Font size is 5% of screen width
           color: txtcolor ?? Colors.white,
           fontWeight: FontWeight.bold,
           fontFamily: 'Lexend Deca',
         ),
       ),
       style: ElevatedButton.styleFrom(
-        backgroundColor: Color(0xff1A73E8),
+        shape: RoundedRectangleBorder(
+          borderRadius:
+              BorderRadius.circular(8), // Border radius is 2% of screen width
+        ),
+        backgroundColor: color,
         padding: EdgeInsets.symmetric(
-          vertical: vs,
-          horizontal: hs,
+          vertical: vs, // Scale vertical padding
+          horizontal: hs, // Scale horizontal padding
         ),
       ),
     );
