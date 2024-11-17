@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nexplore/constants/constant.dart';
 import 'package:nexplore/widgets/customButton.dart';
 import 'package:nexplore/widgets/customTextButton.dart';
 import 'package:nexplore/widgets/customTextForm.dart';
@@ -14,13 +15,10 @@ class LoginScreeen extends StatefulWidget {
 class _LoginScreeenState extends State<LoginScreeen> {
   @override
   Widget build(BuildContext context) {
-    // Get screen dimensions
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    // Set proportional spacing
-    final double padding = screenWidth * 0.05; // 5% of screen width
-    final double avatarRadius = screenWidth * 0.2; // 20% of screen width
+    final double padding = ScreenUtils.padding(context);
+    final double avatarRadius = ScreenUtils.avatarRadius(context);
+    final double screenHeight = ScreenUtils.screenHeight(context);
+    final double screenWidth = ScreenUtils.screenWidth(context);
 
     return Scaffold(
       body: Center(
@@ -34,19 +32,25 @@ class _LoginScreeenState extends State<LoginScreeen> {
                   'assets/images/remplayicon.png',
                 ),
               ),
-              SizedBox(height: screenHeight * 0.02), // 2% of screen height
-              CutomText(
+              SizedBox(
+                height: screenHeight * 0.02,
+              ), // 2% of screen height
+              CustomText(
                 text: 'Welcome Back',
                 color: const Color(0xff1A73E8),
                 fontSize: screenWidth * 0.08, // 8% of screen width
               ),
-              SizedBox(height: screenHeight * 0.01), // 1% of screen height
-              CutomText(
+              SizedBox(
+                height: screenHeight * 0.01,
+              ), // 1% of screen height
+              CustomText(
                 text: 'Sign in to continue exploring.',
                 color: const Color(0xff6A8DC1),
                 fontSize: screenWidth * 0.04, // 4% of screen width
               ),
-              SizedBox(height: screenHeight * 0.03), // 3% of screen height
+              SizedBox(
+                height: screenHeight * 0.03,
+              ), // 3% of screen height
               CustomTextForm(
                 dataLabelText: 'Email',
                 dataHintText: 'Enter your email',
@@ -79,8 +83,8 @@ class _LoginScreeenState extends State<LoginScreeen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CutomText(
-                    color: Colors.black,
+                  CustomText(
+                    color: const Color.fromARGB(255, 61, 63, 204),
                     text: 'Do not have an account ?',
                     fontSize: screenWidth * 0.045, // 4.5% of screen width
                   ),

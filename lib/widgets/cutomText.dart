@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // ignore: non_constant_identifier_names
-Widget CutomText(
+Widget CustomText(
     {required final String text,
     required final Color color,
     required final double fontSize}) {
