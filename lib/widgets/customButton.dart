@@ -24,7 +24,6 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     // Get screen dimensions
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     return ElevatedButton(
       onPressed: onPressed,

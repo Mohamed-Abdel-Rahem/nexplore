@@ -16,7 +16,6 @@ class LoginScreeen extends StatefulWidget {
 class _LoginScreeenState extends State<LoginScreeen> {
   @override
   Widget build(BuildContext context) {
-    final double padding = ScreenUtils.padding(context);
     final double avatarRadius = ScreenUtils.avatarRadius(context);
     final double screenHeight = ScreenUtils.screenHeight(context);
     final double screenWidth = ScreenUtils.screenWidth(context);
