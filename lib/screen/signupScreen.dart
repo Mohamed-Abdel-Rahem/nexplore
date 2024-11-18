@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexplore/constants/constant.dart';
+import 'package:nexplore/screen/loginScreeen.dart';
 import 'package:nexplore/widgets/customButton.dart';
 import 'package:nexplore/widgets/customTextButton.dart';
 import 'package:nexplore/widgets/customTextForm.dart';
@@ -7,6 +8,7 @@ import 'package:nexplore/widgets/cutomText.dart';
 
 class SignUpScreeen extends StatefulWidget {
   const SignUpScreeen({super.key});
+  static String id = 'SignUpScreeen';
 
   @override
   State<SignUpScreeen> createState() => _SignUpScreeenState();
@@ -122,7 +124,9 @@ class _SignUpScreeenState extends State<SignUpScreeen> {
                       fontSize: 16),
                   CustomTextButton(
                     text: 'Log In',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, LoginScreeen.id);
+                    },
                   ), // 3% of screen height// 2% of screen height
                 ],
               )

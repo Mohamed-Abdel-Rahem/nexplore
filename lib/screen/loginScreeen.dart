@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexplore/constants/constant.dart';
+import 'package:nexplore/screen/signupScreen.dart';
 import 'package:nexplore/widgets/customButton.dart';
 import 'package:nexplore/widgets/customTextButton.dart';
 import 'package:nexplore/widgets/customTextForm.dart';
@@ -7,7 +8,7 @@ import 'package:nexplore/widgets/cutomText.dart';
 
 class LoginScreeen extends StatefulWidget {
   const LoginScreeen({super.key});
-
+  static String id = 'LoginScreeen';
   @override
   State<LoginScreeen> createState() => _LoginScreeenState();
 }
@@ -90,7 +91,9 @@ class _LoginScreeenState extends State<LoginScreeen> {
                   ),
                   CustomTextButton(
                     text: 'SignUp',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, SignUpScreeen.id);
+                    },
                   ),
                 ],
               ),

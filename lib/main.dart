@@ -2,15 +2,20 @@ import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:nexplore/screen/homePage.dart';
+import 'package:nexplore/screen/loginScreeen.dart';
+import 'package:nexplore/screen/signupScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  String initialRoute = Homepage.id;
   try {
     await Firebase.initializeApp();
     runApp(DevicePreview(
       enabled: true,
       tools: const [...DevicePreview.defaultTools],
-      builder: (context) => const NexPlore(),
+      builder: (context) => NexPlore(
+        initialRoute: initialRoute,
+      ),
     ));
   } catch (e) {
     debugPrint('Firebase initialization error: $e');
@@ -18,7 +23,9 @@ void main() async {
 }
 
 class NexPlore extends StatelessWidget {
-  const NexPlore({super.key});
+  final String initialRoute;
+
+  const NexPlore({super.key, required this.initialRoute});
 
   // This widget is the root of your application.
   @override
@@ -28,7 +35,12 @@ class NexPlore extends StatelessWidget {
         primarySwatch: Colors.blue,
         useMaterial3: false,
       ),
-      home: Homepage(),
+      initialRoute: initialRoute,
+      routes: {
+        Homepage.id: (context) => const Homepage(),
+        LoginScreeen.id: (context) => const LoginScreeen(),
+        SignUpScreeen.id: (context) => const SignUpScreeen(),
+      },
     );
   }
 }
