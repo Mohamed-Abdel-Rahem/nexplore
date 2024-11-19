@@ -21,3 +21,38 @@
             //     ],
             //   ),
             // ),
+
+//// pick image 
+//             import 'package:flutter/material.dart';
+// import 'package:image_picker/image_picker.dart';
+
+// pickImage(ImageSource source) async {
+//   final ImagePicker _imagePicker = ImagePicker();
+//   XFile? _file = await _imagePicker.pickImage(source: source);
+//   if (_file != null) {
+//     return await _file.readAsBytes();
+//   }
+//   print('no image picker');
+// }
+
+
+/// null check for empty
+  //  image != null
+  //                 ? CircleAvatar(
+  //                     radius: screenWidth * 0.37,
+  //                     backgroundImage: MemoryImage(image!),
+  //                   )
+  //                 : CircleAvatar(
+  //                     radius: screenWidth * 0.37,
+  //                     backgroundColor: Colors.white,
+  //                     backgroundImage: const AssetImage(
+  //                       'assets/images/profile.png',
+  //                     ),
+  //                   ),
+  // Uint8List? image;
+  // void selectedImage() async {
+  //   Uint8List img = await pickImage(ImageSource.gallery);
+  //   setState(() {
+  //     image = img;
+  //   });
+  // }
