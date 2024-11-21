@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:nexplore/screen/accountInfo.dart';
 import 'package:nexplore/screen/homePage.dart';
 import 'package:nexplore/screen/loginScreeen.dart';
 import 'package:nexplore/screen/signupScreen.dart';
@@ -40,6 +41,7 @@ class NexPlore extends StatelessWidget {
         Homepage.id: (context) => const Homepage(),
         LoginScreeen.id: (context) => const LoginScreeen(),
         SignUpScreeen.id: (context) => const SignUpScreeen(),
+        AccountInformation.id: (context) => const AccountInformation(),
       },
     );
   }

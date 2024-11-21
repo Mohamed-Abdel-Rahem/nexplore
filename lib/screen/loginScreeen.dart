@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexplore/constants/constant.dart';
+import 'package:nexplore/screen/accountInfo.dart';
 import 'package:nexplore/screen/signupScreen.dart';
 import 'package:nexplore/widgets/customButton.dart';
 import 'package:nexplore/widgets/customTextButton.dart';
@@ -74,7 +75,9 @@ class _LoginScreeenState extends State<LoginScreeen> {
                 text: 'Forget Password ?',
               ),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AccountInformation.id);
+                },
                 color: const Color(0xff1A73E8),
                 txt: 'Login',
                 vs: screenHeight * 0.013, // Button vertical padding

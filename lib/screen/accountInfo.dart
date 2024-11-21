@@ -1,4 +1,3 @@
-// account_information.dart
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:nexplore/services/pickImage.dart';
@@ -18,6 +17,13 @@ class AccountInformation extends StatefulWidget {
 class _AccountInformationState extends State<AccountInformation> {
   Uint8List? _image; // To store the selected image
 
+  // Callback to update the image
+  void _updateImage(Uint8List imageData) {
+    setState(() {
+      _image = imageData; // Update the image state
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -25,10 +31,20 @@ class _AccountInformationState extends State<AccountInformation> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Color(0xff6A8DC1),
+          ),
+        ),
         backgroundColor: Colors.white,
         title: CustomText(
-          text: 'Account Information', color: const Color(0xff6A8DC1),
-          fontSize: screenWidth * 0.06, // 6% of screen width
+          text: 'Account Information',
+          color: const Color(0xff6A8DC1),
+          fontSize: screenWidth * 0.06,
         ),
         centerTitle: true,
       ),
@@ -53,7 +69,7 @@ class _AccountInformationState extends State<AccountInformation> {
                   right: 0,
                   child: IconButton(
                     onPressed: () {
-                      pickImage(context); // Calling the _pickImage function
+                      pickImage(context, _updateImage); // Pass the callback
                     },
                     icon: const Icon(
                       Icons.add_a_photo,

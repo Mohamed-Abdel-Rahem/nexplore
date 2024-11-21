@@ -1,22 +1,23 @@
-// pick_image.dart
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:nexplore/services/_showPermissionDialog.dart';
 import 'package:nexplore/services/getFromGallery.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-Future<void> pickImage(BuildContext context) async {
+Future<void> pickImage(
+  BuildContext context,
+  Function(Uint8List) updateImageCallback, // Accept a callback
+) async {
   PermissionStatus status = await Permission.photos.status;
 
   if (status.isGranted) {
-    // If permission is already granted
-    getFromGallery(context);
+    getFromGallery(context, updateImageCallback); // Pass the callback
   } else if (status.isDenied || status.isRestricted) {
-    // If permission is denied or restricted, request it
     PermissionStatus newStatus = await Permission.photos.request();
     if (newStatus.isGranted) {
-      getFromGallery(context); // Retry opening gallery
+      getFromGallery(context, updateImageCallback); // Retry and pass callback
     } else {
-      // Permission was denied
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -26,7 +27,6 @@ Future<void> pickImage(BuildContext context) async {
       );
     }
   } else if (status.isPermanentlyDenied) {
-    // Permission is permanently denied, show dialog
     showPermissionDialog(context);
   }
 }
