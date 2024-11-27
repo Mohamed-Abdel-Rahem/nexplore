@@ -40,7 +40,7 @@ dependencies:
   device_preview: ^1.2.0
   image_picker: ^1.1.2
   permission_handler:
-
+  shared_preferences:
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -67,6 +67,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/characters/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
