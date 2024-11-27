@@ -6,7 +6,6 @@ Widget NextButton({
 }) {
   // Get the screen width and height
   final double screenWidth = MediaQuery.of(context).size.width;
-  final double screenHeight = MediaQuery.of(context).size.height;
 
   // Calculate the button's size proportionally to the screen dimensions
   final double buttonSize = screenWidth * 0.18; // 18% of the screen width
