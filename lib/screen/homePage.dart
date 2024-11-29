@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nexplore/screen/loginScreeen.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -7,8 +6,6 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: LoginScreeen(),
-    );
+    return const Scaffold();
   }
 }

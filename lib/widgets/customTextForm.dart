@@ -8,6 +8,7 @@ class CustomTextForm extends StatefulWidget {
     required this.dataHintText,
     this.data,
     this.onChanged,
+    this.validator, // Add validator property
     this.isPassword = false,
     required this.prefixIcon,
   }) : super(key: key);
@@ -17,7 +18,9 @@ class CustomTextForm extends StatefulWidget {
   final String dataHintText;
   final Widget prefixIcon;
   final bool isPassword;
-  Function(String)? onChanged;
+  final Function(String)? onChanged;
+  final String? Function(String?)?
+      validator; // Nullable function for validation
 
   @override
   State<CustomTextForm> createState() => _CustomTextFormState();
@@ -29,20 +32,19 @@ class _CustomTextFormState extends State<CustomTextForm> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
       child: Material(
         elevation: 2,
         shadowColor: const Color(0xff94A3B8),
         child: TextFormField(
-          // Validate if the value is empty
-          validator: (value) => value!.isEmpty ? 'Please enter a value' : null,
+          validator: widget.validator, // Use the provided validator
           onChanged: widget.onChanged,
           controller: widget.data,
           obscureText: widget.isPassword ? _obscureText : false,
           style: const TextStyle(
             color: Colors.black,
             fontFamily: 'Lexend Deca',
-          ), // Set the text color
+          ),
           decoration: InputDecoration(
             filled: true,
             fillColor: const Color(0xffF0F7FF),
@@ -61,7 +63,7 @@ class _CustomTextFormState extends State<CustomTextForm> {
                   width: 3), // Change border color when focused
               borderRadius: BorderRadius.circular(8),
             ),
-            prefixIcon: widget.prefixIcon, // Set the prefix icon
+            prefixIcon: widget.prefixIcon,
             suffixIcon: widget.isPassword
                 ? GestureDetector(
                     onTap: () {
@@ -77,7 +79,7 @@ class _CustomTextFormState extends State<CustomTextForm> {
               color: Color(0xff94A3B8),
               fontSize: 20,
               fontFamily: 'Lexend Deca',
-            ), // Set the label color
+            ),
           ),
         ),
       ),

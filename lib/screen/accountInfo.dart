@@ -86,7 +86,7 @@ class _AccountInformationState extends State<AccountInformation> {
               height: screenHeight * 0.01,
             ),
             CustomText(
-              text: 'mohamedar2002mail@gmail.com',
+              text: 'mohamed28101999@gmail.com',
               color: const Color(0xff6A8DC1),
               fontSize: screenWidth * 0.05, // 8% of screen width
             ),
