@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:nexplore/constants/constant.dart';
-import 'package:nexplore/firebase/models/firebaseServices.dart';
+import 'package:nexplore/firebase/models/firebaseServicesAuth.dart';
 import 'package:nexplore/screen/signupScreen.dart';
 import 'package:nexplore/widgets/customButton.dart';
 import 'package:nexplore/widgets/customTextButton.dart';

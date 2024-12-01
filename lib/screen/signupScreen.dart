@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexplore/constants/constant.dart';
-import 'package:nexplore/firebase/models/firebaseServices.dart';
+import 'package:nexplore/firebase/models/firebaseServicesAuth.dart';
 import 'package:nexplore/screen/loginScreeen.dart';
 import 'package:nexplore/utils/extension/contextExtension.dart';
 import 'package:nexplore/widgets/customButton.dart';

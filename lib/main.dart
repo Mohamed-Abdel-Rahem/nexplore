@@ -6,6 +6,7 @@ import 'package:nexplore/screen/accountInfo.dart';
 import 'package:nexplore/screen/homePage.dart';
 import 'package:nexplore/screen/loginScreeen.dart';
 import 'package:nexplore/screen/onBoardingScreen.dart';
+import 'package:nexplore/screen/settingPage.dart';
 import 'package:nexplore/screen/signupScreen.dart';
 import 'package:nexplore/screen/splashScreen.dart';
 
@@ -14,7 +15,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  String initialRoute = SplashScreen.id;
+  String initialRoute = AccountInformation.id;
   try {
     await Firebase.initializeApp();
     runApp(DevicePreview(
@@ -50,6 +51,7 @@ class NexPlore extends StatelessWidget {
         AccountInformation.id: (context) => const AccountInformation(),
         OnBoardingScreen.id: (context) => const OnBoardingScreen(),
         SplashScreen.id: (context) => const SplashScreen(),
+        SettingPage.id: (context) => const SettingPage(),
       },
     );
   }

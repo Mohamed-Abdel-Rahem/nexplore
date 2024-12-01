@@ -1,0 +1,3 @@
+class FirebaseGetData {
+  static getAccountInformation() {}
+}

@@ -76,7 +76,7 @@ class _CustomTextFormState extends State<CustomTextForm> {
                   )
                 : null,
             labelStyle: const TextStyle(
-              color: Color(0xff94A3B8),
+              color: Color.fromARGB(255, 97, 106, 117),
               fontSize: 20,
               fontFamily: 'Lexend Deca',
             ),
