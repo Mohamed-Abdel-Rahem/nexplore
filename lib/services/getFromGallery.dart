@@ -1,22 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'dart:convert';
 import 'dart:typed_data';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future<void> getFromGallery(
-  BuildContext context,
-  Function(Uint8List) updateImageCallback, // Accept a callback
-) async {
+Future<Uint8List?> getImageFromFirestore(String uid) async {
   try {
-    final ImagePicker picker = ImagePicker();
-    final XFile? pickedFile =
-        await picker.pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      final Uint8List imageData = await pickedFile.readAsBytes();
-      updateImageCallback(imageData); // Update the image using the callback
+    // Retrieve the Base64 image string from Firestore
+    DocumentSnapshot userDoc =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+
+    if (userDoc.exists) {
+      // Get the Base64 string of the image
+      String base64Image = userDoc['profile_image'] ?? '';
+
+      if (base64Image.isNotEmpty) {
+        // Convert Base64 string back to Uint8List
+        Uint8List imageBytes = base64Decode(base64Image);
+        return imageBytes;
+      }
     }
+    return null;
   } catch (e) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Error picking image: $e')),
-    );
+    throw Exception('Error fetching image from Firestore: $e');
   }
 }

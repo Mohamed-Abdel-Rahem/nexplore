@@ -15,7 +15,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  String initialRoute = AccountInformation.id;
+  String initialRoute = LoginScreeen.id;
   try {
     await Firebase.initializeApp();
     runApp(DevicePreview(

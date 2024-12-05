@@ -73,13 +73,13 @@ class MyTextBox extends StatelessWidget {
                     ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Text(
                 text,
                 style: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 85, 106, 138),
                   fontFamily: 'Lexend Deca',

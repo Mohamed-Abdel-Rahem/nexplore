@@ -49,12 +49,14 @@ class FirebaseServices {
     required String username,
     required String email,
     required String groupValue,
+    String? profile_image,
   }) async {
     // Add user data to Firestore using the email as the document ID (UID)
     await FirebaseFirestore.instance.collection('users').doc(uid).set({
       'email': email,
       'username': username,
       'gender': groupValue,
+      'profile_image': profile_image,
     });
     await FirebaseAuth.instance.signOut();
   }
@@ -129,4 +131,36 @@ class FirebaseServices {
       );
     }
   }
+
+  // //5- updateUsername
+  // static Future<void> updateUsername(
+  //   String trim, {
+  //   required String newUsername,
+  //   required BuildContext context,
+  //   required TextEditingController usernameController,
+  // }) async {
+  //   try {
+  //     final currentUser = FirebaseAuth.instance.currentUser;
+  //     if (currentUser != null) {
+  //       // Update username in Firestore
+  //       await FirebaseFirestore.instance
+  //           .collection('users')
+  //           .doc(currentUser.email) // Use email as document ID
+  //           .update({'username': newUsername});
+  //       // Show success message
+  //       ScaffoldMessenger.of(context).showSnackBar(
+  //         const SnackBar(content: Text('Username updated successfully')),
+  //       );
+  //       //set State
+  //       usernameController.text = newUsername;
+  //     } else {
+  //       throw Exception('User is not logged in');
+  //     }
+  //   } catch (e) {
+  //     // Handle errors here
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       const SnackBar(content: Text('Failed to update username')),
+  //     );
+  //   }
+  // }
 }
