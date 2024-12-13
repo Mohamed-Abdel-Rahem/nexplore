@@ -10,4 +10,5 @@ class Routes {
   static const String SignUpScreeen = '/SignUpScreeen';
   static const String SplashScreen = '/SplashScreen';
   static const String MorePage = '/MorePage';
+  static const String add = '/Add';
 }

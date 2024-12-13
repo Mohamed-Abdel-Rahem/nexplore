@@ -39,7 +39,7 @@ class MovieScreen extends StatelessWidget {
               onPressed: () {
                 context.navigateTo(Routes.MorePage);
               },
-              icon: Icon(Icons.more_horiz))
+              icon: Icon(Icons.search)),
         ],
       ),
       body: SafeArea(

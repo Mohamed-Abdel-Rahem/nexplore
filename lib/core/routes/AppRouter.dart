@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexplore/auth/screen/accountInfo.dart';
+import 'package:nexplore/auth/screen/add.dart';
 import 'package:nexplore/auth/screen/loginScreeen.dart';
 import 'package:nexplore/auth/screen/morePage.dart';
 import 'package:nexplore/auth/screen/settingPage.dart';
@@ -29,6 +30,8 @@ class AppRouter {
       case Routes.MorePage:
         return MaterialPageRoute(
             builder: (_) => MorePage(), settings: settings);
+      case Routes.add:
+        return MaterialPageRoute(builder: (_) => Add(), settings: settings);
       default:
         return unDefinedRoute();
     }

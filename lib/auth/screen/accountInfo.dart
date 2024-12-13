@@ -164,6 +164,17 @@ class _AccountInformationState extends State<AccountInformation> {
               color: const Color(0xff6A8DC1),
             ),
           ),
+          Padding(
+            padding: EdgeInsets.only(right: screenWidth * .02),
+            child: IconButton(
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                context.navigateRep(Routes.login);
+              },
+              icon: const Icon(Icons.logout),
+              color: const Color(0xff6A8DC1),
+            ),
+          ),
         ],
         leading: IconButton(
           onPressed: () {

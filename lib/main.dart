@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:nexplore/MovieApp.dart';
 import 'package:nexplore/auth/firebase_options.dart';
 import 'package:nexplore/auth/screen/accountInfo.dart';
+import 'package:nexplore/auth/screen/add.dart';
 import 'package:nexplore/auth/screen/foregtPassword.dart';
 import 'package:nexplore/auth/screen/homePage.dart';
 import 'package:nexplore/auth/screen/loginScreeen.dart';
+import 'package:nexplore/auth/screen/morePage.dart';
 import 'package:nexplore/auth/screen/onBoardingScreen.dart';
 import 'package:nexplore/auth/screen/settingPage.dart';
 import 'package:nexplore/auth/screen/signupScreen.dart';
@@ -59,6 +61,7 @@ class NexPlore extends StatelessWidget {
         SettingPage.id: (context) => const SettingPage(),
         ForgetPasswordScreen.id: (context) => const ForgetPasswordScreen(),
         MovieApp.id: (context) => const MovieApp(),
+        Add.id: (context) => Add(),
       },
     );
   }

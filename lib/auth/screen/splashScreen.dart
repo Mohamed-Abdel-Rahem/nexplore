@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     Timer(const Duration(seconds: 4), () async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      bool visited = prefs.getBool('vis') ?? false;
+      bool visited = prefs.getBool('viss') ?? false;
       if (visited) {
         Navigator.pushReplacementNamed(context, LoginScreeen.id);
       } else {

@@ -50,9 +50,9 @@ class PopularMovies extends StatelessWidget {
                   height: 16.h,
                 ),
                 SizedBox(
-                    height: 283.h,
-                    child: BlocBuilder<PopularMoviesCubit, PopularMoviesState>(
-                        builder: (context, state) {
+                  height: 283.h,
+                  child: BlocBuilder<PopularMoviesCubit, PopularMoviesState>(
+                    builder: (context, state) {
                       if (state is PopularMovieLoading) {
                         return const Center(child: CircularProgressIndicator());
                       } else if (state is PopularMovieSuccess) {
@@ -60,115 +60,111 @@ class PopularMovies extends StatelessWidget {
                             state.data as MoviesResponse;
                         List<Results>? results = moviesResponse.results;
                         return ListView.builder(
-                            itemCount: results!.length,
-                            itemBuilder: (context, index) => Padding(
-                                  padding:
-                                      EdgeInsets.only(right: 8.w, bottom: 8.h),
-                                  child: SizedBox(
-                                    width: 143.w,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          height: 128.h,
-                                          width: 85.w,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                            image: DecorationImage(
-                                                image: NetworkImage(
-                                                    '$imageUrl${results[index].posterPath}'),
-                                                fit: BoxFit.cover),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 16.w,
-                                        ),
-                                        Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              SizedBox(
-                                                width: 150.w,
-                                                child: Text(
-                                                    '${results[index].title}',
-                                                    maxLines: 2,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style:
-                                                        TextStyles.movieName),
-                                              ),
-                                              SizedBox(
-                                                height: 4.h,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Assets.images.star.svg(),
-                                                  SizedBox(
-                                                    width: 1.5.w,
-                                                  ),
-                                                  Text(
-                                                    '${results[index].voteAverage}',
-                                                    style: TextStyles.movieRate,
-                                                  )
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 4.h,
-                                              ),
-                                              Wrap(
-                                                children: List.generate(
-                                                    results[index].genreIds!.length > 3
-                                                        ? 3
-                                                        : results[index]
-                                                            .genreIds!
-                                                            .length,
-                                                    (i) => Container(
-                                                        margin: EdgeInsets.only(
-                                                            right: 8.w),
-                                                        padding: EdgeInsets.symmetric(
-                                                            vertical: 4.h,
-                                                            horizontal: 12.w),
-                                                        decoration: BoxDecoration(
-                                                            color: ColorName
-                                                                .lightIndigoColor,
-                                                            borderRadius:
-                                                                BorderRadius.circular(
-                                                                    16.r)),
-                                                        child: Text(
-                                                            '${results[index].genreIds![i]}',
-                                                            style:
-                                                                TextStyles.tags))),
-                                              ),
-                                              SizedBox(
-                                                height: 4.h,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Assets.images.clock.svg(),
-                                                  SizedBox(
-                                                    width: 1.5.w,
-                                                  ),
-                                                  Text(
-                                                    '${results[index].releaseDate}',
-                                                    style: TextStyles.movieRate,
-                                                  )
-                                                ],
-                                              ),
-                                            ])
-                                      ],
+                          itemCount: results!.length,
+                          itemBuilder: (context, index) => Padding(
+                            padding: EdgeInsets.only(right: 8.w, bottom: 8.h),
+                            child: SizedBox(
+                              width: 143.w,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 128.h,
+                                    width: 85.w,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              '$imageUrl${results[index].posterPath}'),
+                                          fit: BoxFit.cover),
                                     ),
                                   ),
-                                ));
+                                  SizedBox(
+                                    width: 16.w,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        width: 150.w,
+                                        child: Text('${results[index].title}',
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyles.movieName),
+                                      ),
+                                      SizedBox(
+                                        height: 4.h,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Assets.images.star.svg(),
+                                          SizedBox(
+                                            width: 1.5.w,
+                                          ),
+                                          Text(
+                                            '${results[index].voteAverage}',
+                                            style: TextStyles.movieRate,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 4.h,
+                                      ),
+                                      Wrap(
+                                        children: List.generate(
+                                          results[index].genreIds!.length > 3
+                                              ? 3
+                                              : results[index].genreIds!.length,
+                                          (i) => Container(
+                                            margin: EdgeInsets.only(right: 8.w),
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 4.h,
+                                                horizontal: 12.w),
+                                            decoration: BoxDecoration(
+                                                color:
+                                                    ColorName.lightIndigoColor,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        16.r)),
+                                            child: Text(
+                                              '${results[index].genreIds![i]}',
+                                              style: TextStyles.tags,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 4.h,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Assets.images.clock.svg(),
+                                          SizedBox(
+                                            width: 1.5.w,
+                                          ),
+                                          Text(
+                                            '${results[index].releaseDate}',
+                                            style: TextStyles.movieRate,
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
                       } else if (state is PopularMovieError) {
                         return Center(child: Text(state.error.status_message));
                       } else {
                         return const SizedBox();
                       }
-                    }))
+                    },
+                  ),
+                ),
               ])),
         ));
   }

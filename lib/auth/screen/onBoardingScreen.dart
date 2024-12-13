@@ -217,6 +217,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   void setVisitFlag() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    pref.setBool('vis', true);
+    pref.setBool('viss', true);
   }
 }
