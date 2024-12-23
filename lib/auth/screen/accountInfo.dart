@@ -4,8 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nexplore/auth/firebase/models/getDataFirebase.dart';
-import 'package:nexplore/auth/screen/loginScreeen.dart';
-import 'package:nexplore/auth/screen/settingPage.dart';
 import 'package:nexplore/auth/services/pickImage.dart';
 import 'package:nexplore/auth/utils/extension/contextExtension.dart';
 import 'package:nexplore/auth/widgets/customButton.dart';

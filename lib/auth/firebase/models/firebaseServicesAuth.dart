@@ -1,13 +1,10 @@
 // ignore_for_file: unused_local_variable
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:nexplore/MovieApp.dart';
-import 'package:nexplore/auth/screen/accountInfo.dart';
-import 'package:nexplore/auth/screen/loginScreeen.dart';
 import 'package:nexplore/auth/utils/extension/contextExtension.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:nexplore/auth/widgets/customShowDailog.dart';
+import 'package:nexplore/core/routes/routres.dart';
+import 'package:nexplore/util/extensions/context_extension.dart';
 
 class FirebaseServices {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -73,25 +70,13 @@ class FirebaseServices {
     try {
       UserCredential credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      Navigator.pushReplacementNamed(context, MovieApp.id);
+      context.navigateTo(Routes.home);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         context.showSnack(message: 'No user found for that email');
       } else if (e.code == 'wrong-password') {
         context.showSnack(message: 'Wrong password provided for that user.');
       }
-    }
-  }
-
-  //5- signOutAndNavigateToLogin
-  static Future<void> signOutAndNavigateToLogin({
-    required Function() navigateToLogin,
-  }) async {
-    try {
-      await _auth.signOut();
-      navigateToLogin(); // Call the provided navigation function
-    } catch (e) {
-      rethrow; // Propagate the exception for handling
     }
   }
 
