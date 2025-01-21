@@ -4,8 +4,6 @@ import 'package:nexplore/auth/screen/loginScreeen.dart';
 import 'package:nexplore/auth/widgets/customButton.dart';
 import 'package:nexplore/auth/widgets/customTextForm.dart';
 import 'package:nexplore/auth/widgets/cutomText.dart';
-import 'package:nexplore/core/routes/routres.dart';
-import 'package:nexplore/util/extensions/context_extension.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -130,7 +128,8 @@ class _SettingPageState extends State<SettingPage> {
   Future<void> _signOutAndNavigateToLoginPage() async {
     try {
       await _auth.signOut();
-      context.navigateRep(Routes.login);
+      Navigator.pushNamedAndRemoveUntil(
+          context, LoginScreeen.id, (route) => true);
     } catch (e) {
       // Handle sign out error, if any
     }

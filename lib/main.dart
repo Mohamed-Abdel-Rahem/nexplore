@@ -14,6 +14,8 @@ import 'package:nexplore/auth/screen/settingPage.dart';
 import 'package:nexplore/auth/screen/signupScreen.dart';
 import 'package:nexplore/auth/screen/splashScreen.dart';
 import 'package:nexplore/core/di/module.dart';
+import 'package:nexplore/features/details/ui/screen/details_screen.dart';
+import 'package:nexplore/features/movie/ui/screens/movie_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -61,8 +63,10 @@ class NexPlore extends StatelessWidget {
         SplashScreen.id: (context) => const SplashScreen(),
         SettingPage.id: (context) => const SettingPage(),
         ForgetPasswordScreen.id: (context) => const ForgetPasswordScreen(),
-        MovieApp.id: (context) => const MovieApp(),
         Add.id: (context) => Add(),
+        MovieScreen.id: (context) => const MovieScreen(),
+        DetailsScreen.id: (context) => const DetailsScreen(),
+        MorePage.id: (context) => const MorePage(),
       },
     );
   }

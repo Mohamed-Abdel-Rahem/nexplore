@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexplore/auth/screen/accountInfo.dart';
 import 'package:nexplore/core/themes/TextStyles.dart';
 
@@ -11,9 +10,9 @@ class MovieAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 18.h),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 18),
         width: double.infinity,
-        height: 60.h,
+        height: 60,
         child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
           GestureDetector(
             onTap: () {

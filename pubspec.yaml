@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_screenutil:
+  flutter_screenutil: ^5.9.3
   flutter_svg:
   lottie:
   bloc:

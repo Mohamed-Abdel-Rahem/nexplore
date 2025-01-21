@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexplore/core/di/module.dart';
 import 'package:nexplore/core/themes/TextStyles.dart';
+import 'package:nexplore/features/details/ui/screen/details_screen.dart';
 import 'package:nexplore/features/movie/logic/now_showing/movie_cubit.dart';
 import 'package:nexplore/features/movie/model/MovieResponse.dart';
 import 'package:nexplore/gen/colors.gen.dart';
-import 'package:nexplore/util/extensions/context_extension.dart';
 
 import '../../../../core/network/constants.dart';
-import '../../../../core/routes/routres.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../logic/now_showing/movie_state.dart';
 
@@ -21,10 +19,10 @@ class NowShowing extends StatelessWidget {
     return BlocProvider(
         create: (context) => getIt<MovieCubit>()..emitStates(),
         child: Padding(
-          padding: EdgeInsets.only(left: 24.w, right: 24.w, top: 16.h),
+          padding: EdgeInsets.only(left: 24, right: 24, top: 16),
           child: SizedBox(
               width: double.infinity,
-              height: 330.h,
+              height: 330,
               child: Column(children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,8 +36,8 @@ class NowShowing extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(16)),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 8.0.h, vertical: 4.h),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
                         child: Text(
                           'See All',
                           style: TextStyles.seeAll,
@@ -49,10 +47,10 @@ class NowShowing extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 16.h,
+                  height: 16,
                 ),
                 SizedBox(
-                    height: 283.h,
+                    height: 283,
                     child: BlocBuilder<MovieCubit, MovieState>(
                         builder: (context, state) {
                       if (state is MovieLoading) {
@@ -65,18 +63,19 @@ class NowShowing extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             itemCount: results!.length,
                             itemBuilder: (context, index) => GestureDetector(
-                                  onTap: () => context.navigateWithArgs(
-                                      Routes.details, results[index]),
+                                  onTap: () => Navigator.pushNamed(
+                                      context, DetailsScreen.id,
+                                      arguments: results[index]),
                                   child: Padding(
-                                    padding: EdgeInsets.only(right: 8.w),
+                                    padding: EdgeInsets.only(right: 8),
                                     child: SizedBox(
-                                      width: 143.w,
+                                      width: 143,
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Container(
-                                            height: 212.h,
+                                            height: 212,
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(8),
@@ -87,7 +86,7 @@ class NowShowing extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(
-                                            height: 8.h,
+                                            height: 8,
                                           ),
                                           Text('${results[index].title}',
                                               maxLines: 1,
@@ -97,7 +96,7 @@ class NowShowing extends StatelessWidget {
                                             children: [
                                               Assets.images.star.svg(),
                                               SizedBox(
-                                                width: 1.5.w,
+                                                width: 1.5,
                                               ),
                                               Text(
                                                 '${results[index].voteAverage}',

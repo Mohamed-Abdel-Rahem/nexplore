@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/themes/TextStyles.dart';
 
@@ -13,8 +12,13 @@ class OverviewSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Description', style: TextStyles.nowShowing),
-        SizedBox(height: 16.h,),
-        Text(overview,style: TextStyles.description,)
+        SizedBox(
+          height: 16,
+        ),
+        Text(
+          overview,
+          style: TextStyles.description,
+        )
       ],
     );
   }

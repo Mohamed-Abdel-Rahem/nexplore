@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexplore/core/di/module.dart';
 import 'package:nexplore/core/network/constants.dart';
 import 'package:nexplore/features/details/logic/casting/movie_cast_cubit.dart';
@@ -46,8 +45,7 @@ class _CastSectionState extends State<CastSection> {
                     ),
                     borderRadius: BorderRadius.circular(16)),
                 child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 8.0.h, vertical: 4.h),
+                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
                   child: Text(
                     'See All',
                     style: TextStyles.seeAll,
@@ -57,10 +55,10 @@ class _CastSectionState extends State<CastSection> {
             ],
           ),
           SizedBox(
-            height: 16.h,
+            height: 16,
           ),
           SizedBox(
-            height: 110.h,
+            height: 110,
             child: BlocBuilder<MovieCastCubit, MovieCastState>(
                 builder: (context, state) {
               if (state is MovieCastLoading) {
@@ -72,11 +70,11 @@ class _CastSectionState extends State<CastSection> {
                     itemCount: 5,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: EdgeInsets.only(right: 16.w),
+                        padding: EdgeInsets.only(right: 16),
                         child: Column(children: [
                           Container(
-                            width: 60.w,
-                            height: 60.h,
+                            width: 60,
+                            height: 60,
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
@@ -85,7 +83,7 @@ class _CastSectionState extends State<CastSection> {
                                     fit: BoxFit.cover)),
                           ),
                           SizedBox(
-                            height: 4.h,
+                            height: 4,
                           ),
                           Text(
                             '${movieCast.cast![index].name}',

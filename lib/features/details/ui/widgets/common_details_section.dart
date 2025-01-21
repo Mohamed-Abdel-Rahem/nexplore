@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexplore/features/movie/model/MovieResponse.dart';
 
 import '../../../../core/themes/TextStyles.dart';
@@ -19,15 +18,14 @@ class CommonDetailsSection extends StatelessWidget {
             children: List.generate(
                 movie.genreIds!.length,
                 (index) => Container(
-                    margin: EdgeInsets.only(right: 8.w),
-                    padding:
-                        EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),
+                    margin: EdgeInsets.only(right: 8),
+                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
                     decoration: BoxDecoration(
                         color: ColorName.lightIndigoColor,
-                        borderRadius: BorderRadius.circular(16.r)),
+                        borderRadius: BorderRadius.circular(16)),
                     child: Text('${movie.genreIds![index]}',
                         style: TextStyles.tags)))),
-        SizedBox(height: 16.h),
+        SizedBox(height: 16),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -36,7 +34,7 @@ class CommonDetailsSection extends StatelessWidget {
               children: [
                 Text('Length', style: TextStyles.commonItem),
                 SizedBox(
-                  height: 8.h,
+                  height: 8,
                 ),
                 Text(
                   movie.releaseDate!,
@@ -48,9 +46,7 @@ class CommonDetailsSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Language', style: TextStyles.commonItem),
-                SizedBox(
-                  height: 8.h,
-                ),
+                SizedBox(height: 8),
                 Text(
                   movie.originalLanguage!,
                   style: TextStyles.description,
@@ -62,7 +58,7 @@ class CommonDetailsSection extends StatelessWidget {
               children: [
                 Text('Rating', style: TextStyles.commonItem),
                 SizedBox(
-                  height: 8.h,
+                  height: 8,
                 ),
                 Text(
                   '${movie.popularity!}',

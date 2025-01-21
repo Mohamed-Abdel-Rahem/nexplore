@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nexplore/auth/utils/extension/contextExtension.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nexplore/core/routes/routres.dart';
+import 'package:nexplore/features/movie/ui/screens/movie_screen.dart';
 import 'package:nexplore/util/extensions/context_extension.dart';
 
 class FirebaseServices {
@@ -70,7 +71,7 @@ class FirebaseServices {
     try {
       UserCredential credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      context.navigateTo(Routes.home);
+      Navigator.pushNamed(context, MovieScreen.id);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         context.showSnack(message: 'No user found for that email');

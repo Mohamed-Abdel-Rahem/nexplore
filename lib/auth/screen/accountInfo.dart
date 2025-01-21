@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nexplore/auth/firebase/models/getDataFirebase.dart';
+import 'package:nexplore/auth/screen/loginScreeen.dart';
+import 'package:nexplore/auth/screen/settingPage.dart';
 import 'package:nexplore/auth/services/pickImage.dart';
 import 'package:nexplore/auth/utils/extension/contextExtension.dart';
 import 'package:nexplore/auth/widgets/customButton.dart';
@@ -156,7 +158,7 @@ class _AccountInformationState extends State<AccountInformation> {
             padding: EdgeInsets.only(right: screenWidth * .02),
             child: IconButton(
               onPressed: () {
-                context.navigateTo(Routes.Settinpage);
+                Navigator.pushNamed(context, SettingPage.id);
               },
               icon: const Icon(Icons.settings),
               color: const Color(0xff6A8DC1),
@@ -167,7 +169,9 @@ class _AccountInformationState extends State<AccountInformation> {
             child: IconButton(
               onPressed: () async {
                 await FirebaseAuth.instance.signOut();
-                context.navigateRep(Routes.login);
+
+                Navigator.pushNamedAndRemoveUntil(
+                    context, LoginScreeen.id, (route) => false);
               },
               icon: const Icon(Icons.logout),
               color: const Color(0xff6A8DC1),
@@ -278,16 +282,16 @@ class _AccountInformationState extends State<AccountInformation> {
               ),
               SizedBox(height: screenHeight * 0.02),
 
-              CustomButton(
-                txt: 'Delete Account',
-                color: const Color.fromARGB(255, 216, 56, 27),
-                vs: screenHeight * 0.013,
-                hs: screenWidth * 0.2,
-                onPressed: () {
-                  // Delete the account
-                  _deleteAccount();
-                },
-              ),
+              // CustomButton(
+              //   txt: 'Delete Account',
+              //   color: const Color.fromARGB(255, 216, 56, 27),
+              //   vs: screenHeight * 0.013,
+              //   hs: screenWidth * 0.2,
+              //   onPressed: () {
+              //     // Delete the account
+              //     _deleteAccount();
+              //   },
+              // ),
             ],
           ),
         ),
@@ -295,67 +299,68 @@ class _AccountInformationState extends State<AccountInformation> {
     );
   }
 
-  Future<void> _deleteAccount() async {
-    try {
-      final currentUser = FirebaseAuth.instance.currentUser;
-      if (currentUser != null) {
-        // Show confirmation dialog
-        bool confirm = await showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: const Text('Delete Account'),
-            content:
-                const Text('Are you sure you want to delete your account?'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                child: const Text('No'),
-              ),
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(true),
-                child: const Text('Yes'),
-              ),
-            ],
-          ),
-        );
+  // Future<void> _deleteAccount() async {
+  //   try {
+  //     final currentUser = FirebaseAuth.instance.currentUser;
+  //     if (currentUser != null) {
+  //       // Show confirmation dialog
+  //       bool confirm = await showDialog(
+  //         context: context,
+  //         builder: (context) => AlertDialog(
+  //           title: const Text('Delete Account'),
+  //           content:
+  //               const Text('Are you sure you want to delete your account?'),
+  //           actions: <Widget>[
+  //             TextButton(
+  //               onPressed: () => Navigator.of(context).pop(false),
+  //               child: const Text('No'),
+  //             ),
+  //             TextButton(
+  //               onPressed: () => Navigator.of(context).pop(true),
+  //               child: const Text('Yes'),
+  //             ),
+  //           ],
+  //         ),
+  //       );
 
-        if (confirm == true) {
-          // Delete user from Firestore
-          await FirebaseFirestore.instance
-              .collection('users')
-              .doc(currentUser.email) // Use email as document ID
-              .delete();
+  //       if (confirm == true) {
+  //         // Delete user from Firestore
+  //         await FirebaseFirestore.instance
+  //             .collection('users')
+  //             .doc(currentUser.email) // Use email as document ID
+  //             .delete();
 
-          // Delete user from Firebase Authentication
-          await currentUser.delete();
+  //         // Delete user from Firebase Authentication
+  //         await currentUser.delete();
 
-          // Navigate back to login page
-          context.navigateRep(Routes.login);
-        }
-      } else {
-        throw Exception('User is not logged in');
-      }
-    } catch (e) {
-      // Handle errors here
+  //         // Navigate back to login page
+  //         Navigator.pushNamedAndRemoveUntil(
+  //             context, LoginScreeen.id, (route) => false);
+  //       }
+  //     } else {
+  //       throw Exception('User is not logged in');
+  //     }
+  //   } catch (e) {
+  //     // Handle errors here
 
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text('Error'),
-            content:
-                const Text('Failed to delete account. Please try again later.'),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
-    }
-  }
+  //     showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return AlertDialog(
+  //           title: const Text('Error'),
+  //           content:
+  //               const Text('Failed to delete account. Please try again later.'),
+  //           actions: [
+  //             TextButton(
+  //               onPressed: () {
+  //                 Navigator.pop(context);
+  //               },
+  //               child: const Text('OK'),
+  //             ),
+  //           ],
+  //         );
+  //       },
+  //     );
+  //   }
+  // }
 }

@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexplore/auth/firebase/models/movieModel.dart';
 import 'package:nexplore/core/themes/TextStyles.dart';
 import 'package:nexplore/features/details/ui/widgets/movie_rating_widget.dart';
@@ -65,7 +64,7 @@ class _MorePageState extends State<MorePage> {
         children: [
           // Category Selector
           SizedBox(
-            height: 50.w,
+            height: 50,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: categories.length,
@@ -163,8 +162,8 @@ class _MorePageState extends State<MorePage> {
                           children: [
                             // Movie Poster
                             Container(
-                              height: 128.h,
-                              width: 85.w,
+                              height: 128,
+                              width: 85,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
                                 image: DecorationImage(
@@ -174,7 +173,7 @@ class _MorePageState extends State<MorePage> {
                               ),
                             ),
                             SizedBox(
-                              width: 16.w,
+                              width: 16,
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,20 +185,20 @@ class _MorePageState extends State<MorePage> {
                                       fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(
-                                  height: 8.h,
+                                  height: 8,
                                 ), // Space between title and rating
                                 Text(
                                   'Rating: ${movie.voteAverage}⭐',
                                   style: TextStyle(fontSize: 16),
                                 ),
                                 SizedBox(
-                                  height: 8.h,
+                                  height: 8,
                                 ),
                                 Row(
                                   children: [
                                     Assets.images.clock.svg(),
                                     SizedBox(
-                                      width: 1.5.w,
+                                      width: 1.5,
                                     ),
                                     Text(
                                       movie.releaseDate!,
@@ -342,20 +341,20 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.all(24.r),
+            padding: EdgeInsets.all(24),
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
                   TitleSection(widget.movie.title!),
-                  SizedBox(height: 8.h),
+                  SizedBox(height: 8),
                   MovieRatingWidget(widget.movie.voteAverage!),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16),
                   OverviewSection(widget.movie.overview!),
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 32),
 
                   // Rating Section
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16.h),
+                    padding: EdgeInsets.symmetric(vertical: 16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -368,7 +367,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                             });
                           },
                         ),
-                        SizedBox(height: 16.h),
+                        SizedBox(height: 16),
                         TextField(
                           controller: _commentController,
                           decoration: InputDecoration(
@@ -383,7 +382,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                           ),
                           maxLines: 3,
                         ),
-                        SizedBox(height: 16.h),
+                        SizedBox(height: 16),
                         Text("Comments", style: TextStyles.title),
                       ],
                     ),
@@ -417,10 +416,10 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                             itemBuilder: (context, index) {
                               Comment comment = comments[index];
                               return Card(
-                                margin: EdgeInsets.symmetric(vertical: 8.h),
+                                margin: EdgeInsets.symmetric(vertical: 8),
                                 color: const Color(0xffE8E0F0),
                                 child: Padding(
-                                  padding: EdgeInsets.all(12.r),
+                                  padding: EdgeInsets.all(12),
                                   child: Row(
                                     children: [
                                       // CircleAvatar(
@@ -429,7 +428,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                       //         'assets/images/profile.png',
                                       //   ),
                                       // ),
-                                      SizedBox(width: 12.h),
+                                      SizedBox(width: 12),
                                       Expanded(
                                         child: Column(
                                           crossAxisAlignment:
@@ -439,15 +438,15 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                               comment.username!,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 16.sp,
+                                                fontSize: 16,
                                               ),
                                             ),
-                                            SizedBox(height: 8.h),
+                                            SizedBox(height: 8),
                                             Text(
                                               comment.comment!,
-                                              style: TextStyle(fontSize: 14.sp),
+                                              style: TextStyle(fontSize: 14),
                                             ),
-                                            SizedBox(height: 8.h),
+                                            SizedBox(height: 8),
                                             Text(
                                               comment.timestamp != null
                                                   ? comment.timestamp!
@@ -455,7 +454,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                                       .toString()
                                                   : 'Timestamp not available',
                                               style: TextStyle(
-                                                  fontSize: 12.sp,
+                                                  fontSize: 12,
                                                   color: Colors.black),
                                             ),
                                           ],
